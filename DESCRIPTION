@@ -15,4 +15,4 @@ Depends: R (>= 2.10), affy, limma, biomaRt, ArrayExpress, GEOquery,
 Imports: tcltk, annotate, hgu133a.db, hgu133a2.db, hgu133plus2.db,
         RUnit, BiocGenerics, xtable
 Packaged: 2012-09-21 09:42:48 UTC; pacini
-BiocViews: Microarray, GeneExpression, Clustering, Bioinformatics
+biocViews: Microarray, GeneExpression, Clustering, Bioinformatics
