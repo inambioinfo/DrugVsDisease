@@ -1,1 +1,1 @@
-export(generateprofiles,selectrankedlists,classifyprofile)
+export(generateprofiles,selectrankedlists,classifyprofile,combineProfiles)

@@ -10,8 +10,11 @@ Matrix containing a set of ranked gene expression profiles which can be used as 
 \usage{data(customDB)}
 
 \details{
-This is an example subset of the drugRL available in the cMap2data package based on data from the Connectivity Map
+This is an example subset of the drugRL available in the DrugVsDiseasedata package
+\pkg{DrugVsDiseasedata}, data object \code{drugRL}, based on data from the Connectivity
+Map
 }
+
 \source{
 \href{http://www.broadinstitute.org/cmap/}{http://www.broadinstitute.org/cmap/}
 }

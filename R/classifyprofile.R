@@ -1,13 +1,13 @@
 classifyprofile <-
-function(data,pvalues=NULL,case=c("disease","drug"),type=c("fixed","dynamic","range"),lengthtest=100,ranges=seq(100,2000,by=100),adj=c("qvalue","BH"),dynamic.fdr=0.05,signif.fdr=0.05,customRefDB=NULL, noperm=1000,customClusters=NULL,clustermethod=c("single","average"),avgstat=c("mean","median"),cytoout=FALSE,customsif=NULL,customedge=NULL,cytofile=NULL,no.signif=10){
+function(data,pvalues=NULL,case=c("disease","drug"),type=c("fixed","dynamic","range"),lengthtest=100,ranges=seq(100,2000,by=100),adj=c("qvalue","BH"),dynamic.fdr=0.05,signif.fdr=0.05,customRefDB=NULL, noperm=1000,customClusters=NULL,clustermethod=c("single","average"),avgstat=c("mean","median"),cytoout=FALSE,customsif=NULL,customedge=NULL,cytofile=NULL,no.signif=10,stat=c("KS","WSR")){
 	clustermethod<-match.arg(clustermethod)
 	avgstat<-match.arg(avgstat)
 	case<-match.arg(case)
 	type<-match.arg(type)
-	
+	stat<-match.arg(stat)
 	adj<-match.arg(adj)
 	nodename=colnames(data)
-
+	
 	library(qvalue)
 	if(!is.matrix(data)){
 		data<-read.table(data,header=TRUE,row.names=1)
@@ -37,7 +37,7 @@ function(data,pvalues=NULL,case=c("disease","drug"),type=c("fixed","dynamic","ra
 	}
 		
 	#calculate enrichment scores
-	ESvals<-.calculateES(data,case=case,type=type,pvalues=pvalues,adj=adj,dynamic.fdr=dynamic.fdr,signif.fdr=signif.fdr,customRefDB=customRefDB,noperm=noperm,ranges=ranges,lengthtest=lengthtest)
+	ESvals<-.calculateES(data,case=case,type=type,pvalues=pvalues,adj=adj,dynamic.fdr=dynamic.fdr,signif.fdr=signif.fdr,customRefDB=customRefDB,noperm=noperm,ranges=ranges,lengthtest=lengthtest,stat=stat)
 	
 			
 	#assign significant enrichment scores to clusters		

@@ -12,7 +12,14 @@ Matrix containing a set of drugs and their corresponding clusters which can be u
 Data frame with 47 rows and 2 columns. Columns are headed "Drug" and "Cluster". 
 }
 \details{
-Each row refers to a compound in the customDB data set \code{link{customDB}} with its corresponding cluster assignment in the second column. These profiles are a subset of the Connectivity Map data [1] (full set available in the cMap2data package) for example use. Clusters were generated using affinity propagation clustering [2]
+
+Each row refers to a compound in the customDB data set
+\code{link{customDB}} with its corresponding cluster assignment in the
+second column. These profiles are a subset of the Connectivity Map data
+[1] (full set available in the DrugVsDiseasedata package
+\pkg{DrugVsDiseasedata}, data object \code{drugRL}, for example use. Clusters
+were generated using affinity propagation clustering [2]
+
 }
 \source{
 \href{http://www.broadinstitute.org/cmap/}{http://www.broadinstitute.org/cmap/}

@@ -8,7 +8,7 @@ Generate Profiles
 Processing Affymetrix data to generate ranked lists of differential gene expression and associated p-values. 
 }
 \usage{
-generateprofiles(input = c("AE", "GEO", "localAE", "local"), normalisation = c("rma", "mas5"), accession = NULL, customfile = NULL, celfilepath = NULL, sdrfpath = NULL, case = c("disease", "drug"), statistic = c("coef", "t", "diff"), annotation = NULL, factorvalue = NULL)
+generateprofiles(input = c("AE", "GEO", "localAE", "local"), normalisation = c("rma", "mas5"), accession = NULL, customfile = NULL, celfilepath = NULL, sdrfpath = NULL, case = c("disease", "drug"), statistic = c("coef", "t", "diff"), annotation = NULL, factorvalue = NULL,annotationmap=NULL,type=c("average","medpolish","maxvar","max"),outputgenedata=FALSE)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -42,6 +42,9 @@ Optional character string giving the platform of the affymetrix files
   \item{factorvalue}{
 Optional character string giving the name of the factor value in the GEO database.
 }
+	\item{annotationmap}{Optional matrix, or string to text file, containing an annotation map to convert from probes (first column) to HUGO gene symbols (second column). If passing a file path name the text file should have only two columns without rownames or headers.}
+	\item{type}{The type of statistic to use to combine multiple probes to a single gene. Can be one of average (default) expression values, median polish, maxvar: the single probe to represent the set which has maximum variance or max to use the probe with maximal variance.}
+\item{outputgenedata}{Boolean set to default FALSE. Outputs the gene data produced by generate profiles instead of the fitted coefficients from the linear models.}
 }
 \details{
 Input types of AE and GEO use raw data download from Array Express using the ArrayExpress [1] package or processed GDS files from GEO using the GEOquery package [2]. CEL files and sdrf files downloaded from Array Express and stored locally can be processed using localAE option with the sdrf file path specified in sdrfpath and the path of the folder containing the CEL files contained in celfilepath. Users data stored locally can be processed using the local option with CEL file folders in celfilepath and factors associated with the CEL files in customfile. Where metadata may be missing from the GEO database, platform annotations can be specified using the annotation parameters and the name of main factor value (e.g. disease status, or compound treatment) using factorvalue option. 
