@@ -1160,8 +1160,10 @@ function(normalised,experimentAEpdata=NULL,customfactors=NULL,experiment=NULL,ca
 				if(case=="disease"){
 					factordisease<-grep("state",ignore.case=TRUE,factorvals,value=T)
 					if(length(factordisease)==0)factordisease<-grep("status",ignore.case=TRUE,factorvals,value=T)
+                    if(length(factordisease)==0)factordisease<-grep("disease",ignore.case=TRUE,factorvals,value=T)
 				}else{
 						factordisease<-grep("compound",ignore.case=TRUE,factorvals,value=T)
+                        if(length(factordisease)==0)factordisease<-grep("dose",ignore.case=TRUE,factorvals,value=T)
 				}
 				
 				
