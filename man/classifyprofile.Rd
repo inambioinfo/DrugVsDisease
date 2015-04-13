@@ -7,7 +7,7 @@ Classify Profiles
 For a set of ranked gene expression profiles, enrichment scores to a default or custom set of profiles. The ranked gene expression profiles can have been generated from generate profiles or provided by the user. The enrichment scores are assessed for significance using permutations to generate random profiles.
 }
 \usage{
-classifyprofile(data, pvalues = NULL, case = c("disease", "drug"), type = c("fixed", "dynamic", "range"), lengthtest = 100, ranges = seq(100, 2000, by = 100), adj = c("qvalue", "BH"), dynamic.fdr = 0.05, signif.fdr = 0.05, customRefDB = NULL, noperm = 1000, customClusters = NULL, clustermethod = c("single", "average"), avgstat = c("mean", "median"), cytoout = FALSE, customsif = NULL, customedge = NULL, cytofile = NULL, no.signif = 10,stat=c("KS","WSR"))
+classifyprofile(data, pvalues = NULL, case = c("disease", "drug"), type = c("fixed", "dynamic", "range"), lengthtest = 100, ranges = seq(100, 2000, by = 100), adj = c("BH","qvalue"), dynamic.fdr = 0.05, signif.fdr = 0.05, customRefDB = NULL, noperm = 1000, customClusters = NULL, clustermethod = c("single", "average"), avgstat = c("mean", "median"), cytoout = FALSE, customsif = NULL, customedge = NULL, cytofile = NULL, no.signif = 10,stat=c("KS","WSR"))
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -30,7 +30,7 @@ Integer giving the number of genes to generate a set size for use with type=fixe
 A vector of integer values giving a range of gene set sizes, for use with type=range, default 100 to 2000 every 100.
 }
   \item{adj}{
-Character string to set the method for multiple hypothesis testing, one of qvalue (default) or BH
+Character string to set the method for multiple hypothesis testing, one of qvalue or BH (default)
 }
   \item{dynamic.fdr}{
 Double giving the false discovery rate to determine the gene set sizes (default 5%) 

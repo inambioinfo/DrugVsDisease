@@ -105,7 +105,7 @@ function(eset,normalisation=c("rma","mas5")){
 return(normalised)
 }
 .calculateES <-
-function(data,type=c("fixed","dynamic","range"),adj=c("qvalue","BH"),lengthtest=250,ranges=seq(100,2000,by=100),pvalues=NULL,dynamic.fdr=0.01,signif.fdr=0.01,customRefDB=NULL,case=c("disease","drug"),noperm=5000,stat=c("KS","WSR")){
+function(data,type=c("fixed","dynamic","range"),adj=c("BH","qvalue"),lengthtest=250,ranges=seq(100,2000,by=100),pvalues=NULL,dynamic.fdr=0.01,signif.fdr=0.01,customRefDB=NULL,case=c("disease","drug"),noperm=5000,stat=c("KS","WSR")){
 	case=match.arg(case)
 	type=match.arg(type)
 	
@@ -412,13 +412,15 @@ function(scores,rankdata=NULL,rankdatainv=NULL,noperm=100,uplength=250,downlengt
 			pvaladj<-p.adjust(emppvals)
       	}else{
       	
-      		qvals<-qvalue(emppvals)
-      		if(is.list(qvals)){
-      			pvaladj<-qvals$qvalues
-      		}else{
+      		
+      		try(qvals<-qvalue(emppvals))
+      		if(class(qvals)[1]=="try-error"){
       			pvaladj<-p.adjust(emppvals)
       			warning('Q-values error, used BH correction instead')
+      		}else{
+      			pvaladj<-qvals$qvalues	
       		}
+      
 			
 				
      	}

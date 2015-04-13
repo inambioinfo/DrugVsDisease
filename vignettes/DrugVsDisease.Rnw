@@ -61,7 +61,7 @@ selprofiles<-selectrankedlists(profileAE,1)
 Given the data to be analysed, we now use the classifyprofile function to calculate enrichment scores between the input profiles and the  data available from the DvDdata package (this can be changed to a users custom data). This data is based on the connectivity map drug screening. Here we use the default options to analyse the data.
 
 <<results=tex>>=
-default<-classifyprofile(data=selprofiles$ranklist)
+default<-classifyprofile(data=selprofiles$ranklist, signif.fdr=1)
 @
 <<echo=FALSE,results=tex>>=
 library(xtable)
@@ -134,8 +134,8 @@ The function {\it classifyProfile} has four main phases of, calculating Enrichme
 The Enrichment Scores (ES) are calculated for up-regulated and down-regulated genes separately then averaged.The ES is the maximum value of the running sum statistic for input profiles compared to "inverted" reference profiles. For example, when using a disease profile of differentially expressed genes for case versus control, a significant score would indicate a potential therapeutic relationship. Conversely differentially expressed genes of control versus case (the inverse) would indicate a potential side-effect of that drug. 
 Using the default options for classifyprofile the data generated from generateprofiles can be analysed as follows (where the cytoout=FALSE option indicates that no Cytoscape compatible format should be produced):
 
-<<eval=TRUE>>=
-default<-classifyprofile(data=sel22528$ranklist)
+<<eval=FALSE>>=
+default<-classifyprofile(data=sel22528$ranklist, signif.fdr=1)
 @
 
 A two sided test is used by DvD whereby a gene set of the same size is also generated from the reference data and compared to the input profile.

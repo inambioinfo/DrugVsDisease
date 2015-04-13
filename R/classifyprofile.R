@@ -1,5 +1,5 @@
 classifyprofile <-
-function(data,pvalues=NULL,case=c("disease","drug"),type=c("fixed","dynamic","range"),lengthtest=100,ranges=seq(100,2000,by=100),adj=c("qvalue","BH"),dynamic.fdr=0.05,signif.fdr=0.05,customRefDB=NULL, noperm=1000,customClusters=NULL,clustermethod=c("single","average"),avgstat=c("mean","median"),cytoout=FALSE,customsif=NULL,customedge=NULL,cytofile=NULL,no.signif=10,stat=c("KS","WSR")){
+function(data,pvalues=NULL,case=c("disease","drug"),type=c("fixed","dynamic","range"),lengthtest=100,ranges=seq(100,2000,by=100),adj=c("BH","qvalue"),dynamic.fdr=0.05,signif.fdr=0.05,customRefDB=NULL, noperm=1000,customClusters=NULL,clustermethod=c("single","average"),avgstat=c("mean","median"),cytoout=FALSE,customsif=NULL,customedge=NULL,cytofile=NULL,no.signif=10,stat=c("KS","WSR")){
 	clustermethod<-match.arg(clustermethod)
 	avgstat<-match.arg(avgstat)
 	case<-match.arg(case)
