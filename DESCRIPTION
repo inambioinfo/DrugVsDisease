@@ -5,7 +5,7 @@ Title: Comparison of disease and drug profiles using Gene set
 Version: 2.7.1
 Date: 2015-04-13
 Author: C. Pacini
-Maintainer: j. Saez-Rodriguez <saezrodriguez@ebi.ac.uk>, T.C.
+Maintainer: j. Saez-Rodriguez <saezrodriguez@ebi.ac.uk>
 Description: This package generates ranked lists of differential gene
         expression for either disease or drug profiles. Input data can
         be downloaded from Array Express or GEO, or from local CEL
