@@ -2,7 +2,7 @@ Package: DrugVsDisease
 Type: Package
 Title: Comparison of disease and drug profiles using Gene set
         Enrichment Analysis
-Version: 2.10.0
+Version: 2.11.0
 Date: 2015-04-13
 Author: C. Pacini
 Maintainer: j. Saez-Rodriguez <saezrodriguez@ebi.ac.uk>
