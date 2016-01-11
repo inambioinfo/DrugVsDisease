@@ -1134,7 +1134,7 @@ function(annotation,values){
 	sel<-which(annotationlist[,1]==annotation)
 	if(length(sel)==0){stop('Annotation file not available for this platform. Must be one of Affymetrix, HGU133A, HGU133A2 or HGU133Plus2. Alternatively upload an annotation file to process the data')}
 	annref<-annotationlist[sel,2]
-	human_mart<-useMart("ensembl","hsapiens_gene_ensembl")
+	human_mart<-useMart(biomart="ENSEMBL_MART_ENSEMBL",dataset="hsapiens_gene_ensembl",host="www.ensembl.org")
 	annotation_ensembl<-getBM(attributes=c(annref,"hgnc_symbol"),filters=annref,values=values,mart=human_mart)
 	#this will be a matrix each attributes are columns rows are values
 	return(cbind(annotation_ensembl[[1]],annotation_ensembl[[2]]))

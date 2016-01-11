@@ -2,7 +2,7 @@ Package: DrugVsDisease
 Type: Package
 Title: Comparison of disease and drug profiles using Gene set
         Enrichment Analysis
-Version: 2.11.0
+Version: 2.11.1
 Date: 2015-04-13
 Author: C. Pacini
 Maintainer: j. Saez-Rodriguez <saezrodriguez@ebi.ac.uk>
@@ -23,3 +23,5 @@ Depends: R (>= 2.10), affy, limma, biomaRt, ArrayExpress, GEOquery,
 Imports: annotate, hgu133a.db, hgu133a2.db, hgu133plus2.db, RUnit,
         BiocGenerics, xtable
 biocViews: Microarray, GeneExpression, Clustering
+NeedsCompilation: no
+Packaged: 2015-12-21 19:23:05 UTC; cep46

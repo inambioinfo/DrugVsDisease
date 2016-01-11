@@ -58,10 +58,10 @@ selprofiles<-selectrankedlists(profileAE,1)
 @
 
 
-Given the data to be analysed, we now use the classifyprofile function to calculate enrichment scores between the input profiles and the  data available from the DvDdata package (this can be changed to a users custom data). This data is based on the connectivity map drug screening. Here we use the default options to analyse the data.
+Given the data to be analysed, we now use the classifyprofile function to calculate enrichment scores between the input profiles and the  data available from the DvDdata package (this can be changed to a users custom data). This data is based on the connectivity map drug screening. Here we use the default options to analyse the data. Note as this is an example, the signif.fdr value for the false discovery rate is set to 1.1, this is simply to restrict the situation where the process stops due to their being no significant matches, in practice the user should select a value greater than 0 and less than 1, 0.05 is a common choice.
 
 <<results=tex>>=
-default<-classifyprofile(data=selprofiles$ranklist, signif.fdr=1)
+default<-classifyprofile(data=selprofiles$ranklist, signif.fdr=1.1)
 @
 <<echo=FALSE,results=tex>>=
 library(xtable)
@@ -135,7 +135,7 @@ The Enrichment Scores (ES) are calculated for up-regulated and down-regulated ge
 Using the default options for classifyprofile the data generated from generateprofiles can be analysed as follows (where the cytoout=FALSE option indicates that no Cytoscape compatible format should be produced):
 
 <<eval=FALSE>>=
-default<-classifyprofile(data=sel22528$ranklist, signif.fdr=1)
+default<-classifyprofile(data=sel22528$ranklist, signif.fdr=1.1)
 @
 
 A two sided test is used by DvD whereby a gene set of the same size is also generated from the reference data and compared to the input profile.
@@ -200,7 +200,7 @@ data(customedge,package="DrugVsDisease")
 data(customsif,package="DrugVsDisease")
 customRefData<-classifyprofile(data=sel22528$ranklist, lengthtest=100,
 customRefDB=customDB, customClusters=customClust, 
-customedge=customedge, customsif=customsif, cytoout=FALSE,signif.fdr=1)
+customedge=customedge, customsif=customsif, cytoout=FALSE,signif.fdr=1.1)
 @
 
 
