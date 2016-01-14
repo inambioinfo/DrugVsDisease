@@ -1132,6 +1132,10 @@ convertProbes<-function(subdata,subannot){
 function(annotation,values){
 	#values should be the list of probes for the selected platform
 	sel<-which(annotationlist[,1]==annotation)
+	if(length(sel)==0){
+		pgmat<-matrix(c("pd.hg.u133a", "affy_hg_u133a", "pd.hg.u133.plus.2", "affy_hg_u133_plus_2", "pd.hg.u133a.2", "affy_hg_u133a_2"),nrow=3,ncol=2,byrow=TRUE)
+		sel<-which(pgmat[,1]==annotation)
+	}
 	if(length(sel)==0){stop('Annotation file not available for this platform. Must be one of Affymetrix, HGU133A, HGU133A2 or HGU133Plus2. Alternatively upload an annotation file to process the data')}
 	annref<-annotationlist[sel,2]
 	human_mart<-useMart(biomart="ENSEMBL_MART_ENSEMBL",dataset="hsapiens_gene_ensembl",host="www.ensembl.org")
