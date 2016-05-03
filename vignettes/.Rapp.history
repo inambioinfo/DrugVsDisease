@@ -1,0 +1,6 @@
+library(affy)
+?ReadAffy
+library(ArrayExpress)
+?AE
+?pData
+?read.table
