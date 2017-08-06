@@ -2,8 +2,8 @@ Package: DrugVsDisease
 Type: Package
 Title: Comparison of disease and drug profiles using Gene set
         Enrichment Analysis
-Version: 2.17.0
-Date: 2015-04-13
+Version: 2.17.1
+Date: 2017-08-06
 Author: C. Pacini
 Maintainer: j. Saez-Rodriguez <saezrodriguez@ebi.ac.uk>
 Description: This package generates ranked lists of differential gene

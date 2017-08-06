@@ -1037,12 +1037,12 @@ function(tabann,sdorder){
   	if(ncol(sdorder)==1){
   	  other<-mean(sdorder[1:refs[1],])
       for(i in 2:length(tabann)){
-    	  other2[i-1,]<-mean(sdorder[refs[i-1]:refs[i],]) 
+    	  other2[i-1,]<-mean(sdorder[(refs[i-1]+1):refs[i],]) 
       }
    	}else{
    	  other<-colMeans(sdorder[1:refs[1],])
   	  for(i in 2:length(tabann)){
-		  other2[i-1,]<-colMeans(sdorder[refs[i-1]:refs[i],])
+		  other2[i-1,]<-colMeans(sdorder[(refs[i-1]+1):refs[i],])
 		
 	  }
    }
@@ -1059,14 +1059,14 @@ function(tabann,sdorder){
   	  mfit<-medpolish(sdorder[1:refs[1],])
   	  other<-mfit$overall+mfit$col
       for(i in 2:length(tabann)){
-      	  mfit<-medpolish(sdorder[refs[i-1]:refs[i],])
+      	  mfit<-medpolish(sdorder[(refs[i-1]+1):refs[i],])
     	  other2[i-1,]<-mfit$overall+mfit$col 
       }
    	}else{
    		mfit<-medpolish(sdorder[1:refs[1],])
    	  other<-mfit$overall+mfit$col
   	  for(i in 2:length(tabann)){
-  	  	  mfit<-medpolish(sdorder[refs[i-1]:refs[i],])
+  	  	  mfit<-medpolish(sdorder[(refs[i-1]+1):refs[i],])
 		  other2[i-1,]<-mfit$overall +mfit$col
 		
 	  }
